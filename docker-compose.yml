@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  sgtm:
+    image: gcr.io/cloud-tagging-103020/gtm-server:latest
+    container_name: sgtm_server
+    restart: always
+    environment:
+      CONTAINER_CONFIG: '${SGTM_CONTAINER_CONFIG}'
+      RUN_AS_PREVIEW_SERVER: '${RUN_AS_PREVIEW_SERVER:-true}'
+    ports:
+      - "${SGTM_PORT:-8080}:8080"
+    networks:
+      - proxy-net
+
+networks:
+  proxy-net:
+    external: true
