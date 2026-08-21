@@ -1,8 +1,6 @@
-version: '3.8'
-
 services:
   sgtm:
-    image: gcr.io/cloud-tagging-103020/gtm-server:latest
+    image: gcr.io/cloud-tagging-10302018/gtm-cloud-image:stable
     container_name: sgtm_server
     restart: always
     environment:
